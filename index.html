@@ -4,29 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filtro de Búsqueda en Tabla</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
-        }
-        #filtro {
-            margin-bottom: 10px;
-            padding: 5px;
-            width: 300px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            padding: 10px;
-            border: 1px solid #ddd;
-            text-align: left;
-        }
-        th {
-            background-color: #f4f4f4;
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css"> <!-- Vincula el archivo CSS -->
 </head>
 <body>
     <h1>Filtro de Búsqueda en Tabla</h1>
@@ -63,20 +41,6 @@
         </tbody> 
     </table>
 
-    <script>
-        document.getElementById('filtro').addEventListener('keyup', function() {
-            const filtro = this.value.toLowerCase();
-            const filas = document.querySelectorAll('#tabla tbody tr');
-
-            filas.forEach(fila => {
-                const textoFila = fila.textContent.toLowerCase();
-                if (textoFila.includes(filtro)) {
-                    fila.style.display = '';
-                } else {
-                    fila.style.display = 'none';
-                }
-            });
-        });
-    </script>
+    <script src="script.js"></script> <!-- Vincula el archivo JavaScript -->
 </body>
 </html>
