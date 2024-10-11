@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filtro de Búsqueda en Tabla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        #filtro {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body>
+    <h1>Filtro de Búsqueda en Tabla</h1>
+    <input type="text" id="filtro" placeholder="Buscar...">
+    <table id="tabla">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Ciudad</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Juan Pérez</td>
+                <td>28</td>
+                <td>Madrid</td>
+            </tr>
+            <tr>
+                <td>María López</td>
+                <td>34</td>
+                <td>Barcelona</td>
+            </tr>
+            <tr>
+                <td>Carlos García</td>
+                <td>45</td>
+                <td>Valencia</td>
+            </tr>
+            <tr>
+                <td>Lucía Fernández</td>
+                <td>22</td>
+                <td>Sevilla</td>
+            </tr>
+        </tbody> 
+    </table>
+
+    <script>
+        document.getElementById('filtro').addEventListener('keyup', function() {
+            const filtro = this.value.toLowerCase();
+            const filas = document.querySelectorAll('#tabla tbody tr');
+
+            filas.forEach(fila => {
+                const textoFila = fila.textContent.toLowerCase();
+                if (textoFila.includes(filtro)) {
+                    fila.style.display = '';
+                } else {
+                    fila.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
